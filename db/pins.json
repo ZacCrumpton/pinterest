@@ -1,6 +1,18 @@
 {
   "pin1": {
     "imageUrl": "url here",
-    "boardid": "12345"
+    "boardid": "board1"
+  },
+  "pin2": {
+    "imageUrl": "url here",
+    "boardid": "board2"
+  },
+  "pin3": {
+    "imageUrl": "url here",
+    "boardid": "board2"
+  },
+  "pin4": {
+    "imageUrl": "url here",
+    "boardid": "board3"
   }
 }
