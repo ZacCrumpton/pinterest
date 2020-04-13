@@ -5,6 +5,7 @@ import boardHouse from '../../components/boardHouse/boardHouse';
 
 const authDiv = $('#auth');
 const boardDiv = $('#board');
+const pinDiv = $('#pin');
 const logoutBtn = $('#navbar-logout-button');
 
 const checkLoginStatus = () => {
@@ -12,11 +13,13 @@ const checkLoginStatus = () => {
     if (user) {
       authDiv.addClass('hide');
       boardDiv.removeClass('hide');
+      pinDiv.removeClass('hide');
       logoutBtn.removeClass('hide');
       boardHouse.buildBoards();
     } else {
       authDiv.removeClass('hide');
       boardDiv.addClass('hide');
+      pinDiv.addClass('hide');
       logoutBtn.addClass('hide');
     }
   });

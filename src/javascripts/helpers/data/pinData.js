@@ -17,4 +17,8 @@ const getPins = () => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getPins };
+const getPinById = (pinId) => axios.get(`${baseUrl}/pin/${pinId}.json`);
+
+const deletePin = (pinId) => axios.delete(`${baseUrl}/pin/${pinId}.json`);
+
+export default { getPins, deletePin, getPinById };
