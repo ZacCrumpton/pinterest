@@ -2,16 +2,16 @@
   "board1":{
     "name": "art",
     "description": "Japanese",
-    "boarduid": "DI7NFy9J39dpcV8wtz3cb4tFaJK2"
+    "uid": "DI7NFy9J39dpcV8wtz3cb4tFaJK2"
   },
   "board2":{
     "name": "food",
     "description": "junk",
-    "boarduid": "12345"
+    "uid": "12345"
   },
   "board3":{
     "name": "games",
     "description": "RPG",
-    "boarduid": "67890"
+    "uid": "67890"
   }
 }

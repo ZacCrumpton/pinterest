@@ -1,18 +1,34 @@
 {
   "pin1": {
-    "imageUrl": "url here",
+    "title":"Japanese Art",
+    "imageUrl": "https://cdn.gamer-network.net/2016/usgamer/amano-header.jpg/EG11/thumbnail/1920x1080/format/jpg/quality/65/the-final-fantasist-a-conversation-with-yoshitaka-amano.jpg",
+    "pinTitle": "Yoshitaka Amano",
+    "description": "Yoshitaka Amano drew this image of Terra Branford; a protagonist in Square Soft's hit JRPG series titled Final Fantasy VI.",
+    "credit": "Yoshitaka Amano, SquareEnix",
     "boardid": "board1"
   },
   "pin2": {
-    "imageUrl": "url here",
+    "title":"Food",
+    "imageUrl": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/11/2/0/DV1510H_fried-chicken-recipe-10_s4x3.jpg.rend.hgtvcom.826.620.suffix/1568222255998.jpeg",
+    "pinTitle": "Chicken Tender",
+    "description": "Chicken Tenders, ready to fry!",
+    "credit": "",
     "boardid": "board2"
   },
   "pin3": {
-    "imageUrl": "url here",
+    "title":"Food",
+    "imageUrl": "https://i0.wp.com/thecuttingedgeclassroom.com/wp-content/uploads/2019/09/Chicago-Deep-Dish-Class.jpg?fit=2400%2C1595&ssl=1",
+    "pinTitle": "Chicago Style Pizza",
+    "description": "Chi-town baby!",
+    "credit": "Italy i guess",
     "boardid": "board2"
   },
   "pin4": {
-    "imageUrl": "url here",
+    "title":"JRPGs",
+    "imageUrl": "https://media.gamestop.com/i/gamestop/10122346/FINAL-FANTASY-VIII?$pdp$",
+    "pinTitle": "SquareSoft",
+    "description": "Following the success of Final Fantasy VII, Square Soft released Final Fantasy VIII in 1998, using similar art styles to the previous title.",
+    "credit": "Yoshitaka Amano, SquareEnix",
     "boardid": "board3"
   }
 }
