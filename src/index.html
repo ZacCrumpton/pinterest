@@ -27,6 +27,43 @@
   </div>
   <div id="singleView" class="hide"></div>
   
+<!--ADD NEW BOARD MODAL BELOW-->
+
+<div class="modal fade" id="modalAddBoard" tabindex="-1" role="dialog"
+aria-labelledby="addBoardModalTitle" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content modalDisplay">
+    <div class="modal-header">
+      <h5 class="modal-title" id="addBoardModalTitle">Add a New Board</h5>
+      <button type="button" class="close buttonSaveEdit" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div id="modalBodyAddBoard" class="modal-body">
+      <form id="modalForm">
+        <div class="form-group">
+          <label for="board-name">Board title</label>
+          <input type="text" class="form-control" id="board-name" aria-describedby="name"
+            placeholder="Enter the Title of your Board">
+        </div>
+        <div class="form-group">
+          <label for="board-desc">Description</label>
+          <input type="text" class="form-control" id="board-desc" aria-describedby="description"
+            placeholder="Enter A Description of this Board">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn buttonSaveEdit glowing" data-dismiss="modal">Close</button>
+      <button id="button-save-board" type="button" class="btn buttonSaveEdit glowing">Save</button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<!--END NEW BOARD MODAL-->
+
 <!--ADD NEW PIN MODAL BELOW-->
 
   <div class="modal fade" id="modalAddPin" tabindex="-1" role="dialog"
@@ -43,30 +80,20 @@
         <div id="modalBodyAddPin" class="modal-body">
           <form id="modalForm">
             <div class="form-group">
-              <label for="pin-pinTitle">Pin title</label>
-              <input type="text" class="form-control" id="pin-pinTitle" aria-describedby="pinTitle"
-                placeholder="Enter the Title of your Pin">
+              <label for="board-name">Board title</label>
+              <input type="text" class="form-control" id="board-name" aria-describedby="name"
+                placeholder="Enter the Title of your Board">
             </div>
             <div class="form-group">
-              <label for="pin-imgUrl">Image</label>
-              <input type="text" class="form-control" id="pin-imgUrl" aria-describedby="image"
-                placeholder="Enter an Image Url">
-            </div>
-            <div class="form-group">
-              <label for="pin-desc">Description</label>
-              <input type="text" class="form-control" id="pin-desc" aria-describedby="description"
-                placeholder="Enter A Description of this Pin">
-            </div>
-            <div class="form-group">
-              <label for="pin-credit">Credit</label>
-              <input type="text" class="form-control" id="pin-credit" aria-describedby="credit"
-                placeholder="Credit the Original Creator">
+              <label for="board-desc">Description</label>
+              <input type="text" class="form-control" id="board-desc" aria-describedby="description"
+                placeholder="Enter A Description of this Board">
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn buttonSaveEdit glowing" data-dismiss="modal">Close</button>
-          <button id="button-save-pin" type="button" class="btn buttonSaveEdit glowing">Save</button>
+          <button id="button-save-board" type="button" class="btn buttonSaveEdit glowing">Save</button>
         </div>
       </div>
     </div>
