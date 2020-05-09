@@ -6,12 +6,12 @@ const getSingleBoardWithPins = (boardId) => new Promise((resolve, reject) => {
     .then((response) => {
       const board = response.data;
       board.id = boardId;
-      console.log('boardId from smash', boardId);
       board.pins = [];
       pinData.getPins(board.id).then((pins) => {
         if (pins) {
           pins.forEach((pin) => {
             board.pins.push(pin);
+            console.log('relsolving pin', pin);
           });
           resolve(board);
         }

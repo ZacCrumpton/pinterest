@@ -5,6 +5,7 @@ import utils from '../../helpers/utils';
 import pinData from '../../helpers/data/pinData';
 import boardData from '../../helpers/data/boardData';
 import pinModalForm from '../pinModalForm/pinModalForm';
+import pinEdit from '../pinEditForm/pinEditForm';
 
 
 const closeSingleViewEvent = () => {
@@ -25,14 +26,10 @@ const removePin = (e) => {
 };
 
 const makePin = (e) => {
-  e.preventDefault();
   e.stopPropagation();
   const boardid = $('.pin-card').data('board-id');
   const title = $('.pinDiv').attr('id');
-  console.log('boardId for Pin', boardid);
-  console.log('board Title', title);
   const newPin = {
-    // firstName: $('#crew-firstName').val(),
     boardid,
     credit: $('#pin-credit').val(),
     description: $('#pin-desc').val(),
@@ -47,9 +44,37 @@ const makePin = (e) => {
       // eslint-disable-next-line no-use-before-define
       viewSingleBoard(boardid);
       // eslint-disable-next-line no-use-before-define
-      console.log('why are you not printing', viewSingleBoard);
     })
     .catch((error) => console.error('could not add new pin', error));
+};
+
+const editPin = (e) => {
+  e.preventDefault();
+  const pinId = e.target.closest('.pin-card').id;
+  $('#modalEditPin').modal('show');
+  pinEdit.showEditPinForm(pinId);
+};
+
+const updatePin = (e) => {
+  e.stopPropagation();
+  const pinId = $('.edit-pin-form-tag').data('id');
+  const boardid = $('.pin-card').data('board-id');
+  const title = $('.pinDiv').attr('id');
+  const editedPin = {
+    boardid,
+    credit: $('#edit-pin-credit').val(),
+    description: $('#edit-pin-desc').val(),
+    imageUrl: $('#edit-pin-imgUrl').val(),
+    pinTitle: $('#edit-pin-pinTitle').val(),
+    title,
+  };
+  pinData.updatePin(pinId, editedPin)
+    .then(() => {
+      $('#modalEditPin').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      viewSingleBoard(boardid);
+    })
+    .catch((error) => console.error('could not update the pin', error));
 };
 
 const viewSingleBoard = (uid) => {
@@ -74,6 +99,7 @@ const viewSingleBoard = (uid) => {
           domString += `<img class="pin-image" src="${item.imageUrl}" alt="Title"></img>`;
           domString += `<p class="pinsDescr">${item.description}</p>`;
           domString += '</div>';
+          domString += '<button type="button" class="edit-pin-button col-4 btn-default btn-lg glowing"><i class="fas fa-feather-alt"></i></button>';
           domString += '<button class="btn btn-secondary delete-pin-button"><i class="fas fa-trash-alt"></i></button>';
           domString += '</div>';
           domString += '</div>';
@@ -89,8 +115,10 @@ const viewSingleBoard = (uid) => {
       $('#singleView').removeClass('hide');
       $('#board').addClass('hide');
       $('.pinDiv').on('click', '.delete-pin-button', removePin);
-      $('#singleBoardContainer').on('click', '.add-pin-button', pinModalForm.showAddPinForm);
+      $('body').on('click', '#add-pin-button', pinModalForm.showAddPinForm);
       $('body').on('click', '#button-save-pin', makePin);
+      $('body').on('click', '.edit-pin-button', editPin);
+      $('body').on('click', '#button-save-edit-pin', updatePin);
     })
     .catch((err) => console.error('single board goofed up, hyuck', err));
 };
