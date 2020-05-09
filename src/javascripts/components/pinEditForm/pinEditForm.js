@@ -12,7 +12,7 @@ const showEditPinForm = (pinId) => {
       domString += `<input type="text" class="form-control" id="edit-pin-pinTitle" aria-describedby="pinTitle" placeholder="Enter Pin Title" value="${selectedPin.pinTitle}">`;
       domString += '</div>';
       domString += '<div class="form-group">';
-      domString += '<label for="edit-pin-desc">Last Name</label>';
+      domString += '<label for="edit-pin-desc">Description</label>';
       domString += `<input type="text" class="form-control" id="edit-pin-desc" aria-describedby="desc" placeholder="Enter Description" value="${selectedPin.description}">`;
       domString += '</div>';
       domString += '<div class="form-group">';
@@ -21,12 +21,12 @@ const showEditPinForm = (pinId) => {
       domString += '</div>';
       domString += '<div class="form-group">';
       domString += '<label for="edit-pin-credit">Credit</label>';
-      domString += `<input type="text" class="form-control" id="edit-pin-credit" aria-describedby="credit" placeholder="Credit original creator" value="${selectedPin.title}">`;
+      domString += `<input type="text" class="form-control" id="edit-pin-credit" aria-describedby="credit" placeholder="Credit original creator" value="${selectedPin.credit}">`;
       domString += '</div>';
       domString += '</form>';
       utils.printToDom('modalBodyEditPin', domString);
     })
-    .catch((error) => console.error('could not edit the selected crew', error));
+    .catch((error) => console.error('could not edit the selected pin', error));
 };
 
 export default { showEditPinForm };
