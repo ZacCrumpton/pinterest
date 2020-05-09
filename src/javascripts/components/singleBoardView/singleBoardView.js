@@ -5,6 +5,7 @@ import utils from '../../helpers/utils';
 import pinData from '../../helpers/data/pinData';
 import boardData from '../../helpers/data/boardData';
 import pinModalForm from '../pinModalForm/pinModalForm';
+import pinEdit from '../pinEditForm/pinEditForm';
 
 
 const closeSingleViewEvent = () => {
@@ -52,6 +53,13 @@ const makePin = (e) => {
     .catch((error) => console.error('could not add new pin', error));
 };
 
+const editPin = (e) => {
+  e.preventDefault();
+  const pinId = e.target.closest('.pin-card').id;
+  $('#modalEditPin').modal('show');
+  pinEdit.showEditPinForm(pinId);
+};
+
 const viewSingleBoard = (uid) => {
   smash.getSingleBoardWithPins(uid)
     .then((singleBoard) => {
@@ -74,6 +82,7 @@ const viewSingleBoard = (uid) => {
           domString += `<img class="pin-image" src="${item.imageUrl}" alt="Title"></img>`;
           domString += `<p class="pinsDescr">${item.description}</p>`;
           domString += '</div>';
+          domString += '<button type="button" class="edit-pin-button col-4 btn-default btn-lg glowing"><i class="fas fa-feather-alt"></i></button>';
           domString += '<button class="btn btn-secondary delete-pin-button"><i class="fas fa-trash-alt"></i></button>';
           domString += '</div>';
           domString += '</div>';
@@ -91,6 +100,8 @@ const viewSingleBoard = (uid) => {
       $('.pinDiv').on('click', '.delete-pin-button', removePin);
       $('#singleBoardContainer').on('click', '.add-pin-button', pinModalForm.showAddPinForm);
       $('body').on('click', '#button-save-pin', makePin);
+      $('body').on('click', '.edit-pin-button', editPin);
+      console.log('edit pin button event', editPin);
     })
     .catch((err) => console.error('single board goofed up, hyuck', err));
 };
