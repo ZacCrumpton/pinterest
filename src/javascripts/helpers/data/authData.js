@@ -17,7 +17,8 @@ const checkLoginStatus = () => {
       pinDiv.removeClass('hide');
       logoutBtn.removeClass('hide');
       boardHouse.buildBoards();
-      singleBoardView.clickInit();
+      boardHouse.boardClickInit();
+      singleBoardView.pinClickInit();
     } else {
       authDiv.removeClass('hide');
       boardDiv.addClass('hide');

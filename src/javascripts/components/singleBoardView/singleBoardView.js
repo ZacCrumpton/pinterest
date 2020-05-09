@@ -118,7 +118,7 @@ const viewSingleBoard = (uid) => {
     .catch((err) => console.error('single board goofed up, hyuck', err));
 };
 
-const clickInit = () => {
+const pinClickInit = () => {
   $('body').on('click', '#button-save-pin', makePin);
   $('body').on('click', '.edit-pin-button', editPin);
   $('body').on('click', '#button-save-edit-pin', updatePin);
@@ -139,4 +139,4 @@ const viewSingleBoardEvent = (e) => {
 };
 
 
-export default { viewSingleBoard, viewSingleBoardEvent, clickInit };
+export default { viewSingleBoard, viewSingleBoardEvent, pinClickInit };
