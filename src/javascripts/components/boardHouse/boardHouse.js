@@ -1,3 +1,5 @@
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import utils from '../../helpers/utils';
 import boardData from '../../helpers/data/boardData';
 import boardComponent from '../board/board';
@@ -15,11 +17,13 @@ const removeBoard = (e) => {
 };
 
 const buildBoards = () => {
-  boardData.getBoards()
+  const myUid = firebase.auth().currentUser.uid;
+  console.error('myuid are you there?', firebase.auth().currentUser);
+  boardData.getBoards(myUid)
     .then((boards) => {
       let domString = '';
       domString += '<h2>Board</h2>';
-      domString += '<div class="d-flex flex-wrap">';
+      domString += '<div class="d-flex flex-wrap justify-content-center">';
       boards.forEach((board) => {
         domString += boardComponent.boardMaker(board);
       });

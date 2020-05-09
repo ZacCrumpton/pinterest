@@ -1,7 +1,10 @@
+import 'bootstrap';
+
 import smash from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
 import pinData from '../../helpers/data/pinData';
 import boardData from '../../helpers/data/boardData';
+import pinModalForm from '../pinModalForm/pinModalForm';
 
 
 const closeSingleViewEvent = () => {
@@ -21,23 +24,52 @@ const removePin = (e) => {
     .catch((err) => console.error('could not delete pin', err));
 };
 
+const makePin = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  const boardid = $('.pin-card').data('board-id');
+  const title = $('.pinDiv').attr('id');
+  console.log('boardId for Pin', boardid);
+  console.log('board Title', title);
+  const newPin = {
+    // firstName: $('#crew-firstName').val(),
+    boardid,
+    credit: $('#pin-credit').val(),
+    description: $('#pin-desc').val(),
+    imageUrl: $('#pin-imgUrl').val(),
+    pinTitle: $('#pin-pinTitle').val(),
+    title,
+  };
+  pinData.addPin(newPin)
+    .then(() => {
+      $('#modalBodyAddPin input').val('');
+      $('#modalAddPin').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      viewSingleBoard(boardid);
+      // eslint-disable-next-line no-use-before-define
+      console.log('why are you not printing', viewSingleBoard);
+    })
+    .catch((error) => console.error('could not add new pin', error));
+};
+
 const viewSingleBoard = (uid) => {
   smash.getSingleBoardWithPins(uid)
     .then((singleBoard) => {
       let domString = '';
-      domString += '<div class="container d-inline-block text-right mt-5" id="SingleBoardContainer">';
+      domString += '<div class="d-inline-block text-right mt-5" id="singleBoardContainer">';
       domString += '<button id="close-single-view" class="btn btn-danger">Close</button>';
+      domString += '<button id="add-pin-button" type="button" class="btn-default add-pin-button"><i class="fas fa-calendar-plus"></i></button>';
       domString += '</div>';
-      domString += `<div id="${singleBoard.id}" class="container">`;
-      domString += `<h2 id="singleBoardTitle">${singleBoard.description}</h2>`;
-      domString += '<h4 id="singleBoarPinsTitle">Your Pins</h4>';
-      domString += '<div class="container d-flex flex-wrap">';
-      domString += '<div class="row row-cols-1 row-cols-md-3">';
+      domString += `<div id="${singleBoard.id}" class="board-container container bg-dark">`;
+      domString += `<h2 class="text-light" id="singleBoardTitle">${singleBoard.description}</h2>`;
+      domString += '<h4 id="singleBoardPinsTitle" class="text-light">Your Pins</h4>';
+      domString += '<div class="container d-flex flex-wrap space-evenly">';
+      domString += '<div class="">';
       if (singleBoard.pins) {
         singleBoard.pins.forEach((item) => {
-          domString += '<div class=" pinDiv col mb-3">';
-          domString += `<div class="card pin-card bg-light mb-3 h-100" id="${item.id}" data-board-id="${singleBoard.id}">`;
-          domString += `<div class="card-header">${item.title}</div>`;
+          domString += `<div id="${item.title}" class="pinDiv col-3">`;
+          domString += `<div class="card pin-card bg-light" id="${item.id}" data-board-id="${item.boardid}">`;
+          domString += `<div class="card-header">${item.pinTitle}</div>`;
           domString += '<div class="card-body">';
           domString += `<img class="pin-image" src="${item.imageUrl}" alt="Title"></img>`;
           domString += `<p class="pinsDescr">${item.description}</p>`;
@@ -57,6 +89,8 @@ const viewSingleBoard = (uid) => {
       $('#singleView').removeClass('hide');
       $('#board').addClass('hide');
       $('.pinDiv').on('click', '.delete-pin-button', removePin);
+      $('#singleBoardContainer').on('click', '.add-pin-button', pinModalForm.showAddPinForm);
+      $('body').on('click', '#button-save-pin', makePin);
     })
     .catch((err) => console.error('single board goofed up, hyuck', err));
 };
