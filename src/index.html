@@ -27,6 +27,51 @@
   </div>
   <div id="singleView" class="hide"></div>
   
+<!--ADD NEW PIN MODAL BELOW-->
 
+  <div class="modal fade" id="modalAddPin" tabindex="-1" role="dialog"
+    aria-labelledby="addPinModalTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content modalDisplay">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addPinModalTitle">Add a New Pin</h5>
+          <button type="button" class="close buttonSaveEdit" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div id="modalBodyAddPin" class="modal-body">
+          <form id="modalForm">
+            <div class="form-group">
+              <label for="pin-pinTitle">Pin title</label>
+              <input type="text" class="form-control" id="pin-pinTitle" aria-describedby="pinTitle"
+                placeholder="Enter the Title of your Pin">
+            </div>
+            <div class="form-group">
+              <label for="pin-imgUrl">Image</label>
+              <input type="text" class="form-control" id="pin-imgUrl" aria-describedby="image"
+                placeholder="Enter an Image Url">
+            </div>
+            <div class="form-group">
+              <label for="pin-desc">Description</label>
+              <input type="text" class="form-control" id="pin-desc" aria-describedby="description"
+                placeholder="Enter A Description of this Pin">
+            </div>
+            <div class="form-group">
+              <label for="pin-credit">Credit</label>
+              <input type="text" class="form-control" id="pin-credit" aria-describedby="credit"
+                placeholder="Credit the Original Creator">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn buttonSaveEdit glowing" data-dismiss="modal">Close</button>
+          <button id="button-save-pin" type="button" class="btn buttonSaveEdit glowing">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--END ADD PIN MODAL-->
 </body>
 </html>
