@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 import boardHouse from '../../components/boardHouse/boardHouse';
+import singleBoardView from '../../components/singleBoardView/singleBoardView';
 
 const authDiv = $('#auth');
 const boardDiv = $('#board');
@@ -16,6 +17,7 @@ const checkLoginStatus = () => {
       pinDiv.removeClass('hide');
       logoutBtn.removeClass('hide');
       boardHouse.buildBoards();
+      singleBoardView.clickInit();
     } else {
       authDiv.removeClass('hide');
       boardDiv.addClass('hide');

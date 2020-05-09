@@ -25,8 +25,7 @@ const removePin = (e) => {
     .catch((err) => console.error('could not delete pin', err));
 };
 
-const makePin = (e) => {
-  e.stopPropagation();
+const makePin = () => {
   const boardid = $('.pin-card').data('board-id');
   const title = $('.pinDiv').attr('id');
   const newPin = {
@@ -55,8 +54,7 @@ const editPin = (e) => {
   pinEdit.showEditPinForm(pinId);
 };
 
-const updatePin = (e) => {
-  e.stopPropagation();
+const updatePin = () => {
   const pinId = $('.edit-pin-form-tag').data('id');
   const boardid = $('.pin-card').data('board-id');
   const title = $('.pinDiv').attr('id');
@@ -115,12 +113,16 @@ const viewSingleBoard = (uid) => {
       $('#singleView').removeClass('hide');
       $('#board').addClass('hide');
       $('.pinDiv').on('click', '.delete-pin-button', removePin);
-      $('body').on('click', '#add-pin-button', pinModalForm.showAddPinForm);
-      $('body').on('click', '#button-save-pin', makePin);
-      $('body').on('click', '.edit-pin-button', editPin);
-      $('body').on('click', '#button-save-edit-pin', updatePin);
+      console.log('remove the pin', removePin);
     })
     .catch((err) => console.error('single board goofed up, hyuck', err));
+};
+
+const clickInit = () => {
+  $('body').on('click', '#button-save-pin', makePin);
+  $('body').on('click', '.edit-pin-button', editPin);
+  $('body').on('click', '#button-save-edit-pin', updatePin);
+  $('body').on('click', '#add-pin-button', pinModalForm.showAddPinForm);
 };
 
 const viewSingleBoardEvent = (e) => {
@@ -137,4 +139,4 @@ const viewSingleBoardEvent = (e) => {
 };
 
 
-export default { viewSingleBoard, viewSingleBoardEvent };
+export default { viewSingleBoard, viewSingleBoardEvent, clickInit };
