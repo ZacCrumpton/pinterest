@@ -11,7 +11,6 @@ const getSingleBoardWithPins = (boardId) => new Promise((resolve, reject) => {
         if (pins) {
           pins.forEach((pin) => {
             board.pins.push(pin);
-            console.log('relsolving pin', pin);
           });
           resolve(board);
         }
