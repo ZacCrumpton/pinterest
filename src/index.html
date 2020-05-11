@@ -80,20 +80,30 @@ aria-labelledby="addBoardModalTitle" aria-hidden="true">
         <div id="modalBodyAddPin" class="modal-body">
           <form id="modalForm">
             <div class="form-group">
-              <label for="board-name">Board title</label>
-              <input type="text" class="form-control" id="board-name" aria-describedby="name"
-                placeholder="Enter the Title of your Board">
+              <label for="pin-pinTitle">Pin title</label>
+              <input type="text" class="form-control" id="pin-pinTitle" aria-describedby="pinTitle"
+                placeholder="Enter the Title of your Pin">
             </div>
             <div class="form-group">
-              <label for="board-desc">Description</label>
-              <input type="text" class="form-control" id="board-desc" aria-describedby="description"
-                placeholder="Enter A Description of this Board">
+              <label for="pin-desc">Description</label>
+              <input type="text" class="form-control" id="pin-desc" aria-describedby="description"
+                placeholder="Enter A Description of this Pin">
+            </div>
+            <div class="form-group">
+              <label for="pin-imgUrl">Enter Image Url</label>
+              <input type="text" class="form-control" id="pin-imgUrl" aria-describedby="imgUrl"
+                placeholder="Enter A Image Url for the Pin">
+            </div>
+            <div class="form-group">
+              <label for="pin-credit">Credit the Original Creator</label>
+              <input type="text" class="form-control" id="pin-credit" aria-describedby="credit"
+                placeholder="Credit the Original Creator">
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn buttonSaveEdit glowing" data-dismiss="modal">Close</button>
-          <button id="button-save-board" type="button" class="btn buttonSaveEdit glowing">Save</button>
+          <button id="button-save-pin" type="button" class="btn buttonSaveEdit glowing">Save</button>
         </div>
       </div>
     </div>

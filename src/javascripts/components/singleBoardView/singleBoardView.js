@@ -81,11 +81,11 @@ const viewSingleBoard = (uid) => {
       let domString = '';
       domString += '<div class="d-inline-block text-right mt-5" id="singleBoardContainer">';
       domString += '<button id="close-single-view" class="btn btn-danger">Close</button>';
-      domString += '<button id="add-pin-button" type="button" class="btn-default add-pin-button"><i class="fas fa-calendar-plus"></i></button>';
       domString += '</div>';
       domString += `<div id="${singleBoard.id}" class="board-container container bg-dark">`;
       domString += `<h2 class="text-light" id="singleBoardTitle">${singleBoard.description}</h2>`;
       domString += '<h4 id="singleBoardPinsTitle" class="text-light">Your Pins</h4>';
+      domString += '<button id="add-pin-button" type="button" class="btn-default add-pin-button"><i class="fas fa-calendar-plus"></i></button>';
       domString += '<div class="container d-flex flex-wrap space-evenly">';
       domString += '<div class="">';
       if (singleBoard.pins) {
